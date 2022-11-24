@@ -6,13 +6,17 @@ if [ $# -ne 1 ] || [ ${1##*.} != "asm" ]; then
   exit 1
 fi
 
+# ファイル名取得
 filename=$(basename $1 .asm)
 
+# 出力ディレクトリ作成
+mkdir -p out
+
 # オブジェクトコード生成
-nasm -f elf64 $1
+nasm -f elf64 -o ./out/$filename.o $1
 
 # リンクし実行ファイル生成
-ld -s -o $filename $filename.o
+ld -s -o ./out/$filename ./out/$filename.o
 
 # 実行ファイル実行
-./$filename
+./out/$filename
