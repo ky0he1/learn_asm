@@ -13,10 +13,10 @@ filename=$(basename $1 .asm)
 mkdir -p out
 
 # オブジェクトコード生成
-nasm -f elf64 -o ./out/$filename.o $1
+nasm -g -f elf64 -o ./out/$filename.o $1
 
-# リンクし実行ファイル生成
-ld -s -o ./out/$filename ./out/$filename.o
+# 実行ファイル生成
+gcc -g -o ./out/$filename ./out/$filename.o
 
 # 実行ファイル実行
 ./out/$filename
