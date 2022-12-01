@@ -23,20 +23,24 @@ main:
     ; カウンタの初期化
     xor rcx, rcx
 
-    ; ループ
-    .loop:
-        ; "Hello, world"出力
-        call .print_hello
-        ; カウンタをインクリメント
-        inc rcx
-
-        ; limit(10)より小さい場合.loopへジャンプ
-        cmp rcx, limit
-        jb .loop
+    ; ループ実行
+    call .loop
 
     ; 終了
     call .exit
 
+
+; ループ
+.loop:
+    ; "Hello, world"出力
+    call .print_hello
+    ; カウンタをインクリメント
+    inc rcx
+
+    ; limit(10)より小さい場合.loopへジャンプ
+    cmp rcx, limit
+    jb .loop
+    ret
 
 ; "Hello, world"出力
 .print_hello:
