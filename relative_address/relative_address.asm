@@ -24,7 +24,14 @@ global main
 main:
     ; カウンタの初期化
     xor rcx, rcx
-    ; ループ
+
+    ; ループ実行
+    call .loop
+
+    ; 終了
+    call .exit
+
+; ループ
 .loop:
     ; 数字を出力
     call .print_number
@@ -35,8 +42,7 @@ main:
     ; limit(10)より小さい場合.loopへジャンプ
     cmp rcx, limit
     jb .loop
-    ; 終了
-    call .exit
+    ret
 
 ; 数字を出力
 .print_number:
