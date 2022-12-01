@@ -16,7 +16,7 @@ mkdir -p out
 nasm -g -f elf64 -o ./out/$filename.o $1
 
 # 実行ファイル生成
-gcc -g -o ./out/$filename ./out/$filename.o
+ld -g -o ./out/$filename ./out/$filename.o
 
 # 実行ファイル実行
 ./out/$filename
