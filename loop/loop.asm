@@ -18,8 +18,8 @@ section .data
     limit equ 10
 
 section .text
-global main
-main:
+global _start
+_start:
     ; カウンタの初期化
     xor rcx, rcx
 

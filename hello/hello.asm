@@ -17,8 +17,8 @@ section .data
     return_code equ 0
 
 section .text
-global main
-main:
+global _start
+_start:
     ; write システムコールの処理
     ; syscall番号の指定
     mov	rax, sys_write
